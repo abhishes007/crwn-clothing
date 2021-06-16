@@ -22,7 +22,6 @@ class SignUp extends React.Component {
 
   handleSubmit = async (event) => {
     event.preventDefault();
-
     const { signUpStart } = this.props;
     const { displayName, email, password, confirmPassword } = this.state;
 
@@ -36,6 +35,7 @@ class SignUp extends React.Component {
 
   handleChange = (event) => {
     const { name, value } = event.target;
+
     this.setState({ [name]: value });
   };
 
@@ -85,8 +85,8 @@ class SignUp extends React.Component {
   }
 }
 
-const mapDispatchToProps = (disptach) => ({
-  signUpStart: (userCredentials) => disptach(signUpStart(userCredentials)),
+const mapDispatchToProps = (dispatch) => ({
+  signUpStart: (userCredentials) => dispatch(signUpStart(userCredentials)),
 });
 
 export default connect(null, mapDispatchToProps)(SignUp);
